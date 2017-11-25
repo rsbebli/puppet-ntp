@@ -4,6 +4,6 @@ class ntp::install (
       )
 {
 package {$package_name:
-ensure   => $package_ensure
+ensure   => $package_ensure,
         } 
  }

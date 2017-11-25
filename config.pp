@@ -1,7 +1,7 @@
 class ntp::config(
- $config_name       = ntp::config_name,
- $config_file_mode  = ntp::config_file_mode,
- $servers           = ntp::servers,
+ $config_name       =$ntp::config_name,
+ $config_file_mode  =$ntp::config_file_mode,
+ $servers           =$ntp::servers,
 ) 
 
 {
@@ -9,9 +9,10 @@ class ntp::config(
     ensure   => file,
     name     => "/etc/${config_name}",
     mode     => $config_file_mode,
-    owner    => root,
-    group    => root,
-    source   => '/etc/ntp.conf',
-       }
+    owner    =>0,
+    group    =>0,
+    content   => template("$module_name/ntp.conf.erb"),
+
+}
 
 }
